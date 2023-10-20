@@ -2,6 +2,10 @@
   padding: 1em 1em;
 }
 
+table{
+  table-layout: fixed;
+} 
+
 #order-alert {
   display: none;
 }
@@ -14,6 +18,11 @@
   display: none;
 }
 
+#beverage-alert {
+  display: none;
+}
+
 .order {
   display: none;
 }
+
