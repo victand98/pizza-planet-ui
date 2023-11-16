@@ -1,5 +1,5 @@
 function fetchSize(_id) {
-  fetch(`http://127.0.0.1:5000/size/id/${_id}`)
+  fetch(`http://127.0.0.1:5000/size/${_id}`)
     .then((response) => response.json())
     .then((size) => {
       $("#_id").val(size._id);
@@ -15,9 +15,10 @@ function loadInformation() {
 }
 
 function putSize(size) {
-  fetch("http://127.0.0.1:5000/size/", {
+  const { _id, ...rest } = size;
+  fetch(`http://127.0.0.1:5000/size/${_id}`, {
     method: "PUT",
-    body: JSON.stringify(size),
+    body: JSON.stringify(rest),
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
