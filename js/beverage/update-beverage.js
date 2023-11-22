@@ -1,5 +1,5 @@
 function fetchBeverage(_id) {
-  fetch(`http://127.0.0.1:5000/beverage/id/${_id}`)
+  fetch(`http://127.0.0.1:5000/beverage/${_id}`)
     .then((response) => response.json())
     .then((beverage) => {
       $("#_id").val(beverage._id);
@@ -15,9 +15,10 @@ function loadInformation() {
 }
 
 function putBeverage(beverage) {
-  fetch("http://127.0.0.1:5000/beverage/", {
+  const { _id, ...rest } = beverage;
+  fetch(`http://127.0.0.1:5000/beverage/${_id}`, {
     method: "PUT",
-    body: JSON.stringify(beverage),
+    body: JSON.stringify(rest),
     headers: {
       "Content-Type": "application/json; charset=utf-8",
     },
