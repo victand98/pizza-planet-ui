@@ -1,15 +1,17 @@
 fetch("http://127.0.0.1:5000/report/")
   .then((response) => response.json())
   .then((report) => {
-    $("#most-requested-ingredient").text(report.the_most_requested_ingredient);
-    $("#month-with-more-revenue").text(
-      getMonthName(report.month_with_more_revenue)
+    report.month_with_more_revenue = getMonthName(
+      report.month_with_more_revenue
     );
-    $("#top-3-customers").html(
-      report.top_customers.map((customer) => `<li>${customer}</li>`)
-    );
+    let template = createReportTemplate(report);
+    $("#report").append(template);
   });
 
+/**
+ * Get the name of the month
+ * @param monthNumber
+ */
 function getMonthName(monthNumber) {
   let monthNames = [
     "January",
@@ -26,4 +28,9 @@ function getMonthName(monthNumber) {
     "December",
   ];
   return monthNames[monthNumber - 1];
+}
+
+function createReportTemplate(report) {
+  let template = $("#report-template")[0].innerHTML;
+  return Mustache.render(template, report);
 }
