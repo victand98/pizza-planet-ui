@@ -119,14 +119,14 @@
               <p id="size">{{size.name}} - ${{size.price}}</p>
             </td>
             <td id="ingredients">
-              {{#detail}} {{#ingredient}}
-              <p>{{ingredient.name}} - ${{ingredient_price}}</p>
-              {{/ingredient}} {{/detail}}
+              {{#detail}} {{#ingredient}} {{#element}}
+              <p>{{element.name}} - ${{element.price}}</p>
+              {{/element}} {{/ingredient}} {{/detail}}
             </td>
             <td id="beverages">
-              {{#detail}} {{#beverage}}
-              <p>{{beverage.name}} - ${{beverage_price}}</p>
-              {{/beverage}} {{/detail}}
+              {{#detail}} {{#beverage}} {{#element}}
+              <p>{{element.name}} - ${{element_price}}</p>
+              {{/element}} {{/beverage}} {{/detail}}
             </td>
           </tr>
 

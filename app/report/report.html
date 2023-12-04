@@ -65,68 +65,95 @@
       </nav>
     </header>
 
-    <!-- TABLE -->
-
     <div class="container">
       <div class="jumbotron">
-        <h2 class="text-center">Report</h2>
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="card card-stats mb-4 mb-xl-0">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">
-                      Most requested ingredient
-                    </h5>
-                    <span
-                      id="most-requested-ingredient"
-                      class="h5 font-weight-bold mb-0"
-                    ></span>
-                  </div>
+        <div id="report"></div>
+      </div>
+    </div>
+
+    <template id="report-template">
+      <h2 class="text-center">Report</h2>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card card-stats mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">
+                    Most requested ingredient
+                  </h5>
+                  <span
+                    id="most-requested-ingredient"
+                    class="h5 font-weight-bold mb-0"
+                  >
+                    {{the_most_requested_ingredient}}
+                  </span>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="col-lg-4">
-            <div class="card card-stats mb-4 mb-xl-0">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">
-                      Month with more revenue
-                    </h5>
-                    <span
-                      id="month-with-more-revenue"
-                      class="h5 font-weight-bold mb-0"
-                    ></span>
-                  </div>
+        <div class="col-lg-6">
+          <div class="card card-stats mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">
+                    Most requested beverage
+                  </h5>
+                  <span
+                    id="most-requested-beverage"
+                    class="h5 font-weight-bold mb-0"
+                  >
+                    {{the_most_requested_beverage}}
+                  </span>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="col-lg-4">
-            <div class="card card-stats mb-4 mb-xl-0">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col">
-                    <h5 class="card-title text-uppercase text-muted mb-0">
-                      Top 3 Customers
-                    </h5>
-                    <ol
-                      id="top-3-customers"
-                      class="h5 font-weight-bold mb-0"
-                    ></ol>
-                  </div>
+        <div class="col-lg-6">
+          <div class="card card-stats mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">
+                    Month with more revenue
+                  </h5>
+                  <span
+                    id="month-with-more-revenue"
+                    class="h5 font-weight-bold mb-0"
+                  >
+                    {{month_with_more_revenue}}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card card-stats mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">
+                    Top 3 Customers
+                  </h5>
+                  <ol id="top-3-customers" class="h5 font-weight-bold mb-0">
+                    {{#top_customers}}
+                    <li class="">{{.}}</li>
+                    {{/top_customers}}
+                  </ol>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </template>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
